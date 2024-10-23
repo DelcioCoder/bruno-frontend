@@ -16,7 +16,7 @@ const container = {
     y: "0%",
     opacity: 1,
     transition: {
-      delayChildren: 0.3,
+      delayChildren: 0.1,
       staggerChildren: 0.2,
     },
   },
@@ -36,14 +36,16 @@ export default function NavBar() {
   return (
     <>
       <header>
-        <nav className="flex items-center justify-between h-16 navbar px-5">
+        <nav className="flex items-center justify-between h-24 navbar px-5" style={{
+          borderBottom: showMenu ? "0": "1px solid #eaeaea",
+        }}>
           {/* Logo */}
           <div>
-            <h2 className="text-white font-bold text-2xl">Logo</h2>
+            <h2 className="text-black font-bold text-2xl">Logo</h2>
           </div>
 
           {/* Desktop menu */}
-          <ul className="hidden md:flex space-x-7 text-white justify-center items-center m-0 p-0">
+          <ul className="hidden md:flex space-x-7 text-black text-sm justify-center items-center p-0 mr-[590px]">
             <li>
               <Link
                 className="font-extralight cursor-pointer transition hover:opacity-80 duration-200"
@@ -70,6 +72,15 @@ export default function NavBar() {
                 Contacto
               </Link>
             </li>
+
+            <li>
+                <Link
+                  className="font-extralight transition hover:opacity-80 duration-200"
+                  to="/services"
+                >
+                  Serviços
+                </Link>
+            </li>
           </ul>
 
           {/* Mobile menu button */}
@@ -91,7 +102,7 @@ export default function NavBar() {
         {/* Mobile menu */}
         <AnimatePresence>
           {showMenu && (
-            <motion.ul className="md:hidden flex flex-col space-y-4 sidebar text-white p-5"
+            <motion.ul className="md:hidden flex flex-col space-y-4 sidebar text-black p-5"
               initial="hidden"
               animate="visible"
               exit="hidden"
@@ -132,6 +143,19 @@ export default function NavBar() {
                   Contacto
                 </Link>
               </motion.li>
+
+              <motion.li variants={item}>
+                <Link
+                  smooth={true}
+                  duration={600}
+                  className="font-extralight transition hover:opacity-80 duration-200"
+                  to="/services"
+                  onClick={() => setShowMenu(false)}
+                >
+                  Serviços
+                </Link>
+              </motion.li>
+
             </motion.ul>
           )}
         </AnimatePresence>
