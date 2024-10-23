@@ -12,4 +12,12 @@
 
 body{
   background-color: hsl(0, 0%, 95%);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+
+.navbar{
+  background-color:#2B3035;
+}
+
+
