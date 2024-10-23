@@ -43,15 +43,15 @@ export default function NavBar() {
           }}
         >
           {/* Logo */}
-          <div>
+          <div className="ml-10 border">
             <h2 className="text-black font-bold text-2xl">Logo</h2>
           </div>
 
           {/* Desktop menu */}
-          <ul className="hidden md:flex space-x-7 text-black text-sm justify-center items-center p-0 mr-[590px]">
+          <ul className="hidden md:flex space-x-7  text-black text-sm justify-center items-center p-0 mr-[100px]">
             <li>
               <Link
-                className="font-extralight cursor-pointer transition hover:opacity-80 duration-200"
+                className="font-extralight opacity-[0.5] cursor-pointer transition hover:opacity-80 duration-200"
                 to="/"
               >
                 Home
@@ -60,7 +60,7 @@ export default function NavBar() {
 
             <li>
               <Link
-                className="font-extralight transition hover:opacity-80 duration-200"
+                className="font-extralight opacity-[0.5]  transition hover:opacity-80 duration-200"
                 to="/about"
               >
                 Sobre nós
@@ -69,7 +69,7 @@ export default function NavBar() {
 
             <li>
               <Link
-                className="font-extralight transition hover:opacity-80 duration-200"
+                className="font-extralight opacity-[0.5]  transition hover:opacity-80 duration-200"
                 to="/services"
               >
                 Serviços
@@ -78,7 +78,7 @@ export default function NavBar() {
 
             <li className="cursor-pointer">
               <Link
-                className="bg-gradient-to-r rounded-3xl from-blue-500 to-blue-200 transition-all duration-300 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-500 px-10 py-2 text-center text-white"
+                className="bg-gradient-to-r opacity-[0.5]  rounded-3xl from-blue-500 to-blue-300 transition-all duration-300 hover:bg-gradient-to-l hover:from-blue-300 hover:to-blue-500 px-10 py-2 text-center text-white"
                 to="/contact"
               >
                 Contacto
@@ -116,7 +116,7 @@ export default function NavBar() {
                 <Link
                   smooth={true}
                   duration={600}
-                  className="font-extralight cursor-pointer transition hover:opacity-80 duration-200"
+                  className="font-extralight opacity-[0.5] cursor-pointer transition hover:opacity-80 duration-200"
                   to="/"
                   onClick={() => setShowMenu(false)}
                 >
@@ -128,7 +128,7 @@ export default function NavBar() {
                 <Link
                   smooth={true}
                   duration={600}
-                  className="font-extralight transition hover:opacity-80 duration-200"
+                  className="font-extralight opacity-[0.5]  transition hover:opacity-80 duration-200"
                   to="/about"
                   onClick={() => setShowMenu(false)}
                 >
@@ -140,7 +140,7 @@ export default function NavBar() {
                 <Link
                   smooth={true}
                   duration={600}
-                  className="font-extralight transition hover:opacity-80 duration-200"
+                  className="font-extralight opacity-[0.5]  transition hover:opacity-80 duration-200"
                   to="/services"
                   onClick={() => setShowMenu(false)}
                 >
@@ -152,7 +152,7 @@ export default function NavBar() {
                 <Link
                   smooth={true}
                   duration={600}
-                  className={`bg-gradient-to-r rounded-3xl from-blue-500 to-blue-200 transition-all duration-300 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-500 py-2 text-center ${showMenu && "text-white px-64 "}`}
+                  className={`bg-gradient-to-r opacity-[0.5]  rounded-3xl from-blue-500 to-blue-200 transition-all duration-300 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-500 py-2 text-center ${showMenu ? 'text-white px-4 sm:px-6 md:px-8' : 'text-black px-10 sm:px-10'}`}
                   to="/contact"
                   onClick={() => setShowMenu(false)}
                 >
