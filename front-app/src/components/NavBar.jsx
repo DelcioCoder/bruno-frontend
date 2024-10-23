@@ -36,9 +36,12 @@ export default function NavBar() {
   return (
     <>
       <header>
-        <nav className="flex items-center justify-between h-24 navbar px-5" style={{
-          borderBottom: showMenu ? "0": "1px solid #eaeaea",
-        }}>
+        <nav
+          className="flex items-center justify-between h-24 navbar px-5"
+          style={{
+            borderBottom: showMenu ? "0" : "1px solid #eaeaea",
+          }}
+        >
           {/* Logo */}
           <div>
             <h2 className="text-black font-bold text-2xl">Logo</h2>
@@ -67,19 +70,19 @@ export default function NavBar() {
             <li>
               <Link
                 className="font-extralight transition hover:opacity-80 duration-200"
+                to="/services"
+              >
+                Serviços
+              </Link>
+            </li>
+
+            <li className="cursor-pointer">
+              <Link
+                className="bg-gradient-to-r rounded-3xl from-blue-500 to-blue-200 transition-all duration-300 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-500 px-10 py-2 text-center text-white"
                 to="/contact"
               >
                 Contacto
               </Link>
-            </li>
-
-            <li>
-                <Link
-                  className="font-extralight transition hover:opacity-80 duration-200"
-                  to="/services"
-                >
-                  Serviços
-                </Link>
             </li>
           </ul>
 
@@ -102,7 +105,8 @@ export default function NavBar() {
         {/* Mobile menu */}
         <AnimatePresence>
           {showMenu && (
-            <motion.ul className="md:hidden flex flex-col space-y-4 sidebar text-black p-5"
+            <motion.ul
+              className="md:hidden flex flex-col space-y-4 sidebar text-black p-5"
               initial="hidden"
               animate="visible"
               exit="hidden"
@@ -137,18 +141,6 @@ export default function NavBar() {
                   smooth={true}
                   duration={600}
                   className="font-extralight transition hover:opacity-80 duration-200"
-                  to="/contact"
-                  onClick={() => setShowMenu(false)}
-                >
-                  Contacto
-                </Link>
-              </motion.li>
-
-              <motion.li variants={item}>
-                <Link
-                  smooth={true}
-                  duration={600}
-                  className="font-extralight transition hover:opacity-80 duration-200"
                   to="/services"
                   onClick={() => setShowMenu(false)}
                 >
@@ -156,6 +148,17 @@ export default function NavBar() {
                 </Link>
               </motion.li>
 
+              <motion.li variants={item} className="cursor-pointer">
+                <Link
+                  smooth={true}
+                  duration={600}
+                  className={`bg-gradient-to-r rounded-3xl from-blue-500 to-blue-200 transition-all duration-300 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-500 py-2 text-center ${showMenu && "text-white px-64 "}`}
+                  to="/contact"
+                  onClick={() => setShowMenu(false)}
+                >
+                  Contacto
+                </Link>
+              </motion.li>
             </motion.ul>
           )}
         </AnimatePresence>
