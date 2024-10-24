@@ -40,7 +40,7 @@ export default function NavBar() {
           className="flex items-center justify-between h-24 navbar px-5"
           style={{
             borderBottom: showMenu ? "0" : "1px solid #eaeaea",
-          }}
+          }}E
         >
           {/* Logo */}
           <div className="ml-10 border">
