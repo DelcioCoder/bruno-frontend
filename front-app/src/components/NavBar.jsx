@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { useState } from "react";
 import { FaTimes, FaBars } from "react-icons/fa";
 
@@ -40,7 +41,8 @@ export default function NavBar() {
           className="flex items-center justify-between h-24 navbar px-5"
           style={{
             borderBottom: showMenu ? "0" : "1px solid #eaeaea",
-          }}E
+          }}
+          E
         >
           {/* Logo */}
           <div className="ml-10 border">
@@ -50,39 +52,39 @@ export default function NavBar() {
           {/* Desktop menu */}
           <ul className="hidden md:flex space-x-7  text-black text-sm justify-center items-center p-0 mr-[100px]">
             <li>
-              <Link
+              <RouterLink
                 className="font-extralight opacity-[0.5] cursor-pointer transition hover:opacity-80 duration-200"
                 to="/"
               >
                 Home
-              </Link>
+              </RouterLink>
             </li>
 
             <li>
-              <Link
+              <RouterLink
                 className="font-extralight opacity-[0.5]  transition hover:opacity-80 duration-200"
                 to="/about"
               >
                 Sobre nós
-              </Link>
+              </RouterLink>
             </li>
 
             <li>
-              <Link
+              <RouterLink
                 className="font-extralight opacity-[0.5]  transition hover:opacity-80 duration-200"
                 to="/services"
               >
                 Serviços
-              </Link>
+              </RouterLink>
             </li>
 
             <li className="cursor-pointer">
-              <Link
+              <RouterLink
                 className="bg-gradient-to-r opacity-[0.5]  rounded-3xl from-blue-500 to-blue-300 transition-all duration-300 hover:bg-gradient-to-l hover:from-blue-300 hover:to-blue-500 px-10 py-2 text-center text-white"
                 to="/contact"
               >
                 Contacto
-              </Link>
+              </RouterLink>
             </li>
           </ul>
 
@@ -152,7 +154,11 @@ export default function NavBar() {
                 <Link
                   smooth={true}
                   duration={600}
-                  className={`bg-gradient-to-r opacity-[0.5]  rounded-3xl from-blue-500 to-blue-200 transition-all duration-300 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-500 py-2 text-center ${showMenu ? 'text-white px-4 sm:px-6 md:px-8' : 'text-black px-10 sm:px-10'}`}
+                  className={`bg-gradient-to-r opacity-[0.5]  rounded-3xl from-blue-500 to-blue-200 transition-all duration-300 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-500 py-2 text-center ${
+                    showMenu
+                      ? "text-white px-4 sm:px-6 md:px-8"
+                      : "text-black px-10 sm:px-10"
+                  }`}
                   to="/contact"
                   onClick={() => setShowMenu(false)}
                 >

@@ -1,9 +1,5 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
-import { lazy } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
 
 //my components
 import NavBar from "./components/NavBar";
@@ -18,12 +14,15 @@ const App = () => {
   return (
     <Router>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/services" element={<Services />}></Route>
-      </Routes>
+      {/*Suspense for loading slowly content*/}
+      <Suspense fallback={<div>Carregando...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/services" element={<Services />}></Route>
+        </Routes>
+      </Suspense>
     </Router>
   );
 };
